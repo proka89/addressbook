@@ -63,7 +63,7 @@ $row = mysqli_fetch_assoc($result);
           <p><input type="text" name="phone" placeholder="Enter Phone" class="form-control" required value="<?php echo $row['phone'];?>" /></p>
         </div>
       </div>
-      <p><input name="submit" type="submit" value="Update" class="btn btn-default" /></p>
+      <button type="submit" class="btn btn-default" name="submit" value="Update">Update</button>
     </form>
     <?php } ?>
   </div>
