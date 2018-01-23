@@ -5,11 +5,11 @@ $(document).ready(function(){
     var ele = $(this).closest('tr');
 
     $.ajax({
-       url: '../delete_contact.php',
+       url: 'delete_contact.php',
        type: 'POST',
        data: { id:id },
        success: function(data){
-        ele.fadeOut().remove(); 
+        ele.fadeOut().remove();
        }
     });
   });
