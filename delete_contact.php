@@ -6,4 +6,4 @@ $id = $_POST['id'];
 
 $query = "DELETE FROM contacts WHERE id = $id";
 
-$result = mysqli_query($db,$query);
+$result = mysqli_query($db,$query) or die ( mysqli_error());
