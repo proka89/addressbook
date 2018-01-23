@@ -11,10 +11,6 @@
   <script src="js/script.js"></script>
 </head>
 <body>
-<?php
-  require 'config/config.php';
-  $result = $db->query("SELECT first_name, last_name, email, phone FROM contacts") or die($db->error);
-?>
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
@@ -32,7 +28,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form action="contacts.php" method="post">
+              <form action="add_contacts.php" method="post">
                 <div class="form-group">
                   <label>First Name:</label>
                   <input type="text" class="form-control" placeholder="Enter First Name" name="firstname">
@@ -72,21 +68,29 @@
           </tr>
         </thead>
         <?php
-          echo "<tbody>";
+          require 'config/config.php';
+          $result = $db->query("SELECT id, first_name, last_name, email, phone FROM contacts") or die($db->error);
+
             if ($result->num_rows > 0){
               while($row = $result->fetch_assoc()){
-                echo "<tr>";
-                  echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
-                  echo "<td>" . $row['phone'] . "</td>";
-                  echo "<td>" . $row['email'] . "</td>";
-                  echo "<td>" . '<div class="btn-group">' . '<a href="#" class="btn btn-primary" role="button">'
-                   . "Edit" . '</a>' . '<a href="#" class="btn btn-danger" role="button">' . "Delete" . '</a>' . "</div>" . "</td>";
-                echo "</tr>";
+                $id = $row['id'];
+                $name = $row['first_name'] . " " . $row['last_name'];
+                $phone = $row['phone'];
+                $email = $row['email'];
+        ?>
+        <tbody>
+          <tr>
+            <td><?php echo $name ?></td>
+            <td><?php echo $phone ?></td>
+            <td><?php echo $email ?></td>
+            <td><div class="btn-group"><a href="#" class="btn btn-primary" role="button">Edit</a><a href="#" class="btn btn-danger delete" role="button" id='<?php echo $id; ?>'>Delete</a></div></td>
+          </tr>
+        </tbody>
+        <?php
               }
             } else {
               echo "Addressbook is empty";
             }
-          echo "</tbody>";
           $db->close();
         ?>
       </table>
