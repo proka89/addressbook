@@ -11,7 +11,8 @@ $sql = "INSERT INTO contacts (first_name, last_name, email, phone)
 VALUES ('$first_name', '$last_name', '$email', '$phone')";
 
 if(mysqli_query($db, $sql)){
-    echo "Records added successfully.";
+    echo "Contact added successfully. <br><br>
+    <a href='index.php'>View Updated Record</a>";
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
 }

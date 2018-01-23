@@ -82,7 +82,7 @@
             <td><?php echo $name ?></td>
             <td><?php echo $phone ?></td>
             <td><?php echo $email ?></td>
-            <td><div class="btn-group"><a href="#" class="btn btn-primary" role="button" data-toggle="modal" data-target="#editcontact-modal">Edit</a><a href="#" class="btn btn-danger delete" role="button" id='<?php echo $id; ?>'>Delete</a></div></td>
+            <td><div class="btn-group"><a href="edit_contact.php?id=<?php echo $row["id"]; ?>" class="btn btn-primary" role="button" >Edit</a><a href="#" class="btn btn-danger delete" role="button" id='<?php echo $id; ?>'>Delete</a></div></td>
           </tr>
         </tbody>
         <?php
@@ -93,45 +93,6 @@
           $db->close();
         ?>
       </table>
-      <div class="modal fade" id="editcontact-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Edit Contact</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form action="edit_contact.php" method="post">
-                <div class="form-group">
-                  <input type="hidden" class="form-control sr-only" placeholder="Id" name="id">
-                </div>
-                <div class="form-group">
-                  <label>First Name:</label>
-                  <input type="text" class="form-control" placeholder="Enter First Name" name="firstname">
-                </div>
-                <div class="form-group">
-                  <label>Last Name:</label>
-                  <input type="text" class="form-control" placeholder="Enter Last Name" name="lastname">
-                </div>
-                <div class="form-group">
-                  <label>Email:</label>
-                  <input type="email" class="form-control" placeholder="Enter email Address" name="email">
-                </div>
-                <div class="form-group">
-                  <label>Phone Number:</label>
-                  <input type="text" class="form-control" placeholder="Enter Phone Number" name="phone">
-                </div>
-                <button type="submit" class="btn btn-default submit">Submit</button>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
