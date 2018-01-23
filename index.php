@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="css/custom.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="js/bootstrap.js"></script>
-
 </head>
 <body>
 <div class="container">
@@ -106,6 +105,9 @@
             <div class="modal-body">
               <form action="edit_contact.php" method="post">
                 <div class="form-group">
+                  <input type="hidden" class="form-control sr-only" placeholder="Id" name="id">
+                </div>
+                <div class="form-group">
                   <label>First Name:</label>
                   <input type="text" class="form-control" placeholder="Enter First Name" name="firstname">
                 </div>
@@ -133,5 +135,6 @@
     </div>
   </div>
 </div>
+<script src="js/script.js"></script>
 </body>
 </html>
